@@ -3,6 +3,7 @@ import Router from 'vue-router'
 //import HelloWorld from '@/components/HelloWorld'
 import input from '@/components/input.vue'
 import home from '@/components/home.vue'
+import faToCh from '../components/faToCh/fatherEvent'
 
 Vue.use(Router)
 
@@ -17,6 +18,11 @@ export default new Router({
       path: '/input',
       name: 'input',
       component: input
+    },
+    {
+      path: '/faToCh',
+      name: 'faToCh',
+      component: faToCh
     }
   ]
 })
