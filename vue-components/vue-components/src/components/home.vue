@@ -19,7 +19,7 @@ export default {
           address: "/input"
         },
         {
-          name:"父组件触发子组件事件",
+          name:"ref触发子组件事件",
           address:'/faToCh'
         }
       ]

@@ -48,7 +48,6 @@ export default {
   },
   methods:{
     showValue(){
-      console.log(1)
       this.$refs.childValue.showValues();
     }
   }
