@@ -10,7 +10,7 @@
         ></el-option>
       </el-select>
     </div>
-    <childTem :selectValue='selectValue'  ref="childValue"></childTem>
+    <childTem :selectValue='selectValue'  ref='childValue'></childTem>
   </div>
 </template>
 <script>
@@ -20,23 +20,23 @@ export default {
     return {
       options: [
         {
-          value: "选项1",
+          value: "黄金糕",
           label: "黄金糕"
         },
         {
-          value: "选项2",
+          value: "双皮奶",
           label: "双皮奶"
         },
         {
-          value: "选项3",
+          value: "蚵仔煎",
           label: "蚵仔煎"
         },
         {
-          value: "选项4",
+          value: "龙须面",
           label: "龙须面"
         },
         {
-          value: "选项5",
+          value: "北京烤鸭",
           label: "北京烤鸭"
         }
       ],
@@ -46,5 +46,11 @@ export default {
   components: {
     childTem: childTem
   },
+  methods:{
+    showValue(){
+      console.log(1)
+      this.$refs.childValue.showValues();
+    }
+  }
 };
 </script>
