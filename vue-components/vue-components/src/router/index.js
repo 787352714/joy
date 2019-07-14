@@ -4,6 +4,7 @@ import Router from 'vue-router'
 import input from '@/components/input.vue'
 import home from '@/components/home.vue'
 import faToCh from '../components/faToCh/fatherEvent'
+import debounce from '../components/debounce/debounce'
 
 Vue.use(Router)
 
@@ -23,6 +24,11 @@ export default new Router({
       path: '/faToCh',
       name: 'faToCh',
       component: faToCh
+    },
+    {
+      path: '/debounce',
+      name: 'debounce',
+      component: debounce
     }
   ]
 })

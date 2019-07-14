@@ -21,6 +21,10 @@ export default {
         {
           name:"ref触发子组件事件",
           address:'/faToCh'
+        },
+        {
+          name:"防抖和节流",
+          address:'/debounce'
         }
       ]
     };
