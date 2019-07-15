@@ -11,11 +11,21 @@
         crossorigin="" />
     <script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"
         integrity="sha512-GffPMF3RvMeYyc1LWMHtK8EbPv0iNZ8/oTtHPx9/cc2ILxQ+u905qIwdpULaqDkyBKgOaB57QTMg7ztg8Jm2Og=="
-        crossorigin=""></script>
+        crossorigin="">
+    </script>
+    <style>
+        #mapDiv{
+            height: 300px;
+        }
+    </style>
 </head>
 
 <body>
-
+    <div id="mapDiv"></div>
+    <script>
+        let url='https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1Ijoia2FuZXdhbmciLCJhIjoiY2pwM2UxNHNkMGF1MzNwc2FtMnNhdXJsMCJ9.KZpCBtizDeltZO6JhGc6_w';
+        let leafletMap = L.map('')
+    </script>
 </body>
 
 </html>
