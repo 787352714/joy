@@ -29,6 +29,10 @@ export default {
         {
           name:"动画",
           address:'/animotion'
+        },
+        {
+          name:"轮播",
+          address:'/swiper'
         }
       ]
     };
