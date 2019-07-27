@@ -5,6 +5,8 @@ import input from '@/components/input.vue'
 import home from '@/components/home.vue'
 import faToCh from '../components/faToCh/fatherEvent'
 import debounce from '../components/debounce/debounce'
+import animotion from '../components/animotion'
+import swiper from '../components/swiper/swiper'
 
 Vue.use(Router)
 
@@ -29,6 +31,16 @@ export default new Router({
       path: '/debounce',
       name: 'debounce',
       component: debounce
-    }
+    },
+    {
+      path: '/animotion',
+      name: 'animotion',
+      component: animotion
+    },
+    {
+      path: '/swiper',
+      name: 'swiper',
+      component: swiper
+    },
   ]
 })

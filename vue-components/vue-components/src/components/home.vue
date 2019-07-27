@@ -25,6 +25,14 @@ export default {
         {
           name:"防抖和节流",
           address:'/debounce'
+        },
+        {
+          name:"动画",
+          address:'/animotion'
+        },
+        {
+          name:"轮播",
+          address:'/swiper'
         }
       ]
     };
