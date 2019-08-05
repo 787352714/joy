@@ -33,6 +33,10 @@ export default {
         {
           name:"轮播",
           address:'/swiper'
+        },
+        {
+          name:"自适应栅格化",
+          address:'/Layout'
         }
       ]
     };
