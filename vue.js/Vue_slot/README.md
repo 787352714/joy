@@ -52,7 +52,7 @@ For a detailed explanation on how things work, check out the [guide](http://vuej
 ```
 ### 总结
 
-插槽是一种组件间的传递数据或定义模板（template）的方法，其中定义了插槽的组件会以子组件的形式被引入到需要使用的组件中，也就是所谓的子组件
+插槽是一种组件间的传递数据或定义模板（template）的方法，其中定义了插槽的组件会以子组件的形式被引入到需要使用的组件中
 
 ***注意***
 

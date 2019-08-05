@@ -7,6 +7,7 @@ import faToCh from '../components/faToCh/fatherEvent'
 import debounce from '../components/debounce/debounce'
 import animotion from '../components/animotion'
 import swiper from '../components/swiper/swiper'
+import Layout from '../components/Layout/Layout.vue'
 
 Vue.use(Router)
 
@@ -41,6 +42,11 @@ export default new Router({
       path: '/swiper',
       name: 'swiper',
       component: swiper
+    },
+    {
+      path: '/Layout',
+      name: 'Layout',
+      component: Layout
     },
   ]
 })
