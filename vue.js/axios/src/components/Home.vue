@@ -1,6 +1,9 @@
 <template>
   <div>
     <h3>axios</h3>
+    <ul>
+      <li v-for="item in list" :key="item.id">{{item.body}}</li>
+    </ul>
   </div>
 </template>
 <script>
@@ -10,7 +13,8 @@ export default {
     return{
       title:null,
       body:null,
-      paramas:{userId:2}
+      paramas:{userId:1},
+      list:null
     }
   },
   mounted() {
@@ -19,7 +23,8 @@ export default {
   methods: {
     setPosts(paramas){
       getPosts(paramas).then(res=>{
-        console.log(res);
+        this.list=res;
+        console.log(res)
       })
     }
   },
