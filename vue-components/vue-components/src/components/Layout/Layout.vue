@@ -10,7 +10,7 @@
 export default {
   data(){
     return {
-      items:[1,2,3,1,23,1,2,1]
+      items:[1]
     }
   },
   methods:{
