@@ -16,3 +16,15 @@ export function get(url){
     }).catch(err=>Promise.reject(err))
   }
 }
+export function post(url){
+  return function(data,config){
+    return instance.post(url,data,config).then(res=>{
+      const {data,status} = res;
+      if(status===201){
+        return data;
+      }else{
+        return Promise.reject(res);
+      }
+    }).catch(err=>Promise.reject(err))
+  }
+}

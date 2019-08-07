@@ -129,8 +129,31 @@
 import axios from 'axios'
 
 export const instance = axios.create({
-  baseURL:'http://jsonplaceholder.typicode.com/'
+  baseURL:'http://jsonplaceholder.typicode.com/',
+  headers: {
+    "Content-type": "application/json; charset=UTF-8"
+  },
 })
 
 //设置超时时间
-//instance.default.timeout=4000;
+instance.defaults.timeout=400;
+
+instance.interceptors.request.use(function (config) {
+  // 在发送请求之前做些什么
+  console.log(11111111111)
+  return config;
+}, function (error) {
+  // 对请求错误做些什么
+  console.log('请求错误')
+  return Promise.reject(error);
+})
+
+instance.interceptors.response.use(function (response) {
+  // 在发送请求之前做些什么
+  console.log(22222222)
+  return response;
+}, function (error) {
+  // 对请求错误做些什么
+  console.log('获取失败')
+  return Promise.reject(error);
+})
