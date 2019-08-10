@@ -1,7 +1,7 @@
 <template>
   <div class="Layout">
     <el-row :gutter="10" class="row" type='flex'>
-      <el-col :xs="24" :sm="12" :md="12" :lg="8" :xl="6"  v-for="(item,index) in arr" :key='index' style="height:100%" :style="{width:widthOpen}"><div class="grid-content bg-purple">{{widthOpen}}{{arr}}</div></el-col>
+      <el-col :xs="size.xs" :sm="size.sm" :md="size.md" :lg="size.lg" :xl="size.xl"  v-for="(item,index) in arr" :key='index' style="height:100%">{{size}}<div class="grid-content bg-purple">{{arr}}</div></el-col>
     </el-row>
     <el-button @click="addDiv">添加一个</el-button>
     <el-pagination
@@ -22,7 +22,7 @@ export default {
       currentPage: 1,
       arr:[],
       pageSize:8,
-      b:0
+      b:0,
     }
   },
   mounted(){
@@ -57,20 +57,59 @@ export default {
     }
   },
   computed:{
-    widthOpen(){
-      if(this.arr.length===1){
-        return '70%'
-      }else if(this.arr.length<=4){
-        return `${90/(this.arr.length)}%`
-      }else{
-        return '22.5%'
+    size(){
+      switch (this.arr.length){
+        case 1:
+         return this.size= {
+            xl:24,
+            lg:24,
+            md:24,
+            sm:24,
+            xs:24,
+          };
+        case 2:
+          return  this.size= {
+            xl:12,
+            lg:12,
+            md:12,
+            sm:12,
+            xs:24,
+          };
+        case 3:
+          return  this.size= {
+            xl:8,
+            lg:8,
+            md:12,
+            sm:12,
+            xs:24,
+          };
+          break;
+        
+        case 4:
+          return  this.size= {
+            xl:6,
+            lg:8,
+            md:12,
+            sm:12,
+            xs:24,
+          }
+          break;
+        default:
+          return  this.size= {
+            xl:6,
+            lg:8,
+            md:12,
+            sm:12,
+            xs:24,
+          }
+        console.log(this.size)
       }
     }
   }
 }
 </script>
 
-<style>
+<style scope>
   .row{
     display: flex;
     justify-content: center;
