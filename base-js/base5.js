@@ -46,3 +46,23 @@ console.log(obj["b n"]);
  // 求最大
  let max= b.reduce((i,j)=>i-j>=0?i:j);
  console.log(max)
+
+// Function 类型
+
+//函数声明与函数表达式之间的区别
+// 二者主要的区别在与变量提升的操作问题上
+
+console.log(sum1) //undefined 执行到这一步时，sum1变量提升，但是是未赋值的变量
+var sum1 = function(){
+  return 1
+}
+
+console.log(sum2) //可以输出函数，因为变量提升，并且提升的是当前函数 
+function sum2(){
+  return 2
+}
+
+// console.log(sum3) //报错，let不能变量提升
+// let sum3 = function(){
+//   return 3
+// }
