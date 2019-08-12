@@ -14,23 +14,12 @@ var twoSum = function(nums, target) {
 twoSum([12,222,33,674,25,986,437,768,129],255)
 
 //给定一个字符串，请你找出其中不含有重复字符的 最长子串 的长度。
-var lengthOfLongestSubstring = function(s) {
-    s=s.split('')
-    let a = new Set([...s]);
-    console.log(a.size)
-    return a.size;
-};
-
-lengthOfLongestSubstring("pwwkew") //其实可行，垃圾leetcode判断错误
 
 var lengthOfLongestSubstring1 = function(s) {
   arr=s.split('')
-  arr=arr.sort();
   let res=[arr[0]]
   for(let i=1;i<arr.length;i++){
-    if(arr[i]!==arr[i-2]){
-      arr[i] !== arr[i-1] && res.push(arr[i])
-    }
+    if(arr[i]===arr[i-1]){}
   }
   console.log(res.length)
   return res.length
