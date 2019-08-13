@@ -45,7 +45,8 @@ console.log(obj["b n"]);
  console.log(sum);
  // 求最大
  let max= b.reduce((i,j)=>i-j>=0?i:j);
- console.log(max)
+ let max2= Math.max.apply(Math,b)//求最大的简便方法（将Math方法放入apply中作为this，刚好传入一个执行数组作为参数）
+ console.log(max,max2)
 
 // Function 类型
 
