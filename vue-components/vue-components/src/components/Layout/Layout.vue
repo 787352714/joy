@@ -53,7 +53,6 @@ export default {
           this.arr.push(this.items[i])
         }
       }
-
     }
   },
   computed:{
