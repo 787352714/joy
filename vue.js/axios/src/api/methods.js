@@ -17,6 +17,7 @@ export function get(url){
   }
 }
 export function post(url){
+  //为了在instance中访问传入的值，引用了闭包
   return function(data,config){
     return instance.post(url,data,config).then(res=>{
       const {data,status} = res;
