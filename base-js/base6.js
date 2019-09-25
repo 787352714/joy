@@ -41,3 +41,63 @@ console.log('edit :', book.edit,book);
 //set 方法用于写入对象中的属性，包括与get不相关属性。只指定其会被忽略
 //严格模式下会抛出错误
 
+//面向对象理解
+
+//创建对象
+
+//1.字面量
+let o={}
+console.log(o instanceof Object);
+//2. 工厂办法
+
+function Factory(name,age){
+  let factory=new Object();
+  factory.name=name;
+  factory.age=age;
+  factory.sayName= ()=> console.log(name)
+  return factory
+};
+
+let f= Factory('yuxi',12);
+f.sayName()
+console.log(f);
+
+//3. 构造函数
+function Person(name,age){
+  this.name=name;
+  this.age=age;
+  this.sayName= ()=> console.log(this.name)
+};
+
+let person1=new Person('yuxi',14);
+person1.sayName();
+console.log(person1.prototype);
+console.log(person1);
+person1.name= 'hhL';
+person1.sayName();
+
+Person.prototype.grend='男'
+person1.sayName();
+console.log(Person.prototype);
+console.log(Person.prototype.constructor);
+console.log(person1.grend);
+Person.prototype={};
+person1.sayName();
+console.log(Person.prototype.constructor);
+console.log(person1);
+
+// 原型链和继承
+
+//原型链是一种层层递进得分原型链条，一个对象的原型指向另一个对象的实例
+
+// 继承实现原型链
+
+function Supertype(){
+  this.property= 'true'
+}
+
+function SubType(){
+  this.sunProperty=false
+}
+
+SubType.prototype= new Supertype;

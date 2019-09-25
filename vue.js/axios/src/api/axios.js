@@ -149,7 +149,7 @@ instance.interceptors.request.use(function (config) {
 })
 
 instance.interceptors.response.use(function (response) {
-  // 在发送请求之前做些什么
+  // 在收到请求之前做些什么
   console.log(22222222)
   return response;
 }, function (error) {

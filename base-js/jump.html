@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Jump</title>
+</head>
+<body>
+  <span id="time">5秒后跳转到百度</span>
+  <button id="immeButton">立即跳转</button>
+  <button id='cancelButton'>取消跳转</button>
+  <button id='reButton'>恢复跳转</button>
+  <script>
+    let count= document.getElementById('time');
+    let immeButton= document.getElementById('immeButton');
+    let cancelButton= document.getElementById('cancelButton');
+    let reButton= document.getElementById('reButton');
+    let i= 5;
+    let t= setInterval(() => {
+      i--;
+      count.innerText=`${i}秒后跳转到百度`;
+      if(i===0){
+      clearInterval(t);
+      location.assign('https://www.baidu.com');
+      };
+    }, 1000);
+    immeButton.onclick=()=>{
+      location.assign('https://www.baidu.com');
+    };
+    cancelButton.onclick=()=>{
+      clearInterval(t);
+      count.innerText=('已经取消跳转')
+    }
+    reButton.onclick=()=>{
+      t;
+    };
+  </script>  
+</body>
+</html>
