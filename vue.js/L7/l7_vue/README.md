@@ -1,4 +1,4 @@
-# vue_back_cli3
+# l7_vue
 
 ## Project setup
 ```
