@@ -37,6 +37,10 @@ export default {
         {
           name:"自适应栅格化",
           address:'/Layout'
+        },
+        {
+          name:"issue自测快速构建",
+          address:'/Issues'
         }
       ]
     };

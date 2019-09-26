@@ -8,6 +8,7 @@ import debounce from '../components/debounce/debounce'
 import animotion from '../components/animotion'
 import swiper from '../components/swiper/swiper'
 import Layout from '../components/Layout/Layout.vue'
+import Issues from '../components/issueTest/Issues.vue'
 
 Vue.use(Router)
 
@@ -47,6 +48,11 @@ export default new Router({
       path: '/Layout',
       name: 'Layout',
       component: Layout
+    },
+    {
+      path: '/Issues',
+      name: 'Issues',
+      component: Issues
     },
   ]
 })
