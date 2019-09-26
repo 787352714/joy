@@ -1,19 +1,9 @@
 <template>
-  <div class="L7-map">
-    <div :id='id'></div>
-  </div>
+    <div :id='id' class="L7-map"></div>
 </template>
 <script>
 import * as L7 from '@antv/l7';
 export default {
-  data() {
-    const scene = new L7.scene({
-      id:this.id,
-      mapStyle:this.mapStyle,
-      center:this.center,
-      pitch:this.pitch
-    })
-  },
   props:{
     id:{
       type: String,
@@ -37,6 +27,25 @@ export default {
       type: String,
       default: 'dark'
     }
+  },
+  data() {
+    return {
+      
+    }
+  },
+  mounted() {
+    this.scene = new L7.Scene({
+      id: this.id,
+      mapStyle:this.mapStyle,
+      center:this.center,
+      pitch:this.pitch
+    })
   }
 }
 </script>
+<style scoped>
+  .L7-map{
+    width: 100%;
+    height: 100%;
+  }
+</style>
