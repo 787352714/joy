@@ -1,3 +1,6 @@
+<template>
+  
+</template>
 <script>
 export default {
   props: {
@@ -10,6 +13,7 @@ export default {
   },
   mounted() {
     this.parentScene = this.$parent.scene;
+    console.log('this.parentScene :', this.parentScene);
     this.parentScene.LineLayer({
       zIndex: 2
     }).source(this.jsonData).size('ELEV', function(value) {
