@@ -1,7 +1,7 @@
 <template>
   <div class="demo">
-    <lmap :center="[102.602992, 23.107329]" :pitch="15" :zoom="13.82" ref="Lmap">
-      <LineLayer v-if="jsonData" :json-data="jsonData"></LineLayer> 
+    <lmap :center="[102.602992, 23.107329]" :pitch="15" :zoom="13.82" mapStyle='dark' ref="Lmap">
+      <LineLayer v-if="jsonData" :jsonData="jsonData"></LineLayer> 
     </lmap>
     <button @click="testEvent">测试按钮</button>
   </div>

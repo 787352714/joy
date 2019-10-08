@@ -1,5 +1,7 @@
 <template>
-    <div :id='id' class="L7-map"></div>
+    <div :id='id' class="L7-map">
+      <slot v-if="ready"></slot>  
+    </div>
 </template>
 <script>
 import * as L7 from '@antv/l7';
@@ -46,7 +48,7 @@ export default {
   },
   data() {
     return {
-      
+      ready: false
     }
   },
   methods:{
@@ -117,6 +119,9 @@ export default {
       minZoom:this.minZoom,
       maxZoom:this.maxZoom,
       rotateEnable:this.rotateEnable
+    });
+    this.scene.on('loaded', () => {
+      this.ready = true;
     })
   }
 }
