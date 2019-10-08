@@ -17,7 +17,9 @@
     let cancelButton= document.getElementById('cancelButton');
     let reButton= document.getElementById('reButton');
     let i= 5;
-    let t= setInterval(() => {
+    let t;
+    let jump= function(){
+      t= setInterval(() => {
       i--;
       count.innerText=`${i}秒后跳转到百度`;
       if(i===0){
@@ -25,6 +27,8 @@
       location.assign('https://www.baidu.com');
       };
     }, 1000);
+    };
+    jump();
     immeButton.onclick=()=>{
       location.assign('https://www.baidu.com');
     };
@@ -33,7 +37,7 @@
       count.innerText=('已经取消跳转')
     }
     reButton.onclick=()=>{
-      t;
+      jump();
     };
   </script>  
 </body>

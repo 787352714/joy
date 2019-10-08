@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Animotion</title>
+  <style>
+    .ani{
+      height: 200px;
+      width: 200px;
+      background-color: aquamarine;
+      margin: 0 auto;
+      animation: ring 2s linear infinite;
+    }
+    @keyframes ring {
+      0% {
+        transform: translate3d(0,0,0);
+        
+      }
+      25% {
+        transform: translate3d(100px,100px,100px);
+        
+      }
+      50% {
+        transform: translate3d(200px,0,200px);
+        
+      }
+      75% {
+        transform: translate3d(-100px,0px,-100px);
+        
+      }
+      70% {
+        transform: translate3d(0,0,0);
+        
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="ani"></div>
+</body>
+</html>

@@ -1,6 +1,3 @@
-<template>
-  
-</template>
 <script>
 export default {
   props: {
@@ -13,10 +10,11 @@ export default {
   },
   mounted() {
     this.parentScene = this.$parent.scene;
-    console.log('this.parentScene :', this.parentScene);
+    let data={};
+    data= Object.assign(data,this.jsonData);
     this.parentScene.LineLayer({
       zIndex: 2
-    }).source(this.jsonData).size('ELEV', function(value) {
+    }).source(data).size('ELEV', function(value) {
       return [1, (value - 1000) * 7];
     }).active(true)
       .shape('line')
