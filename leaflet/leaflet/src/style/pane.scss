@@ -1,0 +1,44 @@
+.oneMap-popup {
+  position: relative;
+  width: 400px;
+  color: #fff;
+  font-size: 18px;
+  .close-btn {
+    position: absolute;
+    top: 8px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    font-size: 18px;
+    text-align: center;
+    line-height: 30px;
+    cursor: pointer;
+    color: #ccc;
+  }
+  .header {
+    height: 48px;
+    font-size: 20px;
+    padding: 0 20px;
+    line-height: 48px;
+    background:rgba(13, 105, 223, 0.7);
+  }
+  .content {
+    background:#0D69DF;
+    max-height: 500px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  .footer {
+    height: 64px;
+    background:rgba(13, 105, 223, 0.9);
+  }
+}
+
+// 弹出框去掉上角标
+.el-popper {
+  .popper__arrow {
+    &::after {
+      display: none !important;
+    }
+  }
+}
