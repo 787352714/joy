@@ -1,0 +1,13 @@
+{
+  "name": "docs",
+  "version": "1.0.0",
+  "description": "the documents of vue-leaflet",
+  "main": "./docs/readme.md",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "pedeg",
+  "license": "ISC"
+}

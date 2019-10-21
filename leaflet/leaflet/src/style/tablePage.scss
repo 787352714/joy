@@ -1,0 +1,30 @@
+.table-page {
+  position: relative;
+  height: 100%;
+  padding: 70px 0;
+  .search-wrap {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0 40px;
+    line-height: 50px;
+    .oper {
+      float: right;
+    }
+  }
+  .table-wrap {
+    height: 100%;
+    padding: 0 40px;
+  }
+  .page-wrap {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 50px;
+    padding: 0 40px;
+    text-align: right;
+  }
+}
