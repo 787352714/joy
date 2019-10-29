@@ -1,0 +1,116 @@
+.el-select__Load {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  font-size: 18px;
+  color: #409eff;
+  background-color: rgba(255, 255, 255, 0.8);
+  z-index: 22;
+}
+
+.el-select-dropdown__load {
+  font-size: 14px;
+  text-align: center;
+  padding: 0 20px;
+  position: relative;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: #409eff;
+  height: 34px;
+  line-height: 34px;
+  cursor: pointer;
+}
+
+.el-dropdown-menu__item:focus, .el-dropdown-menu__item:not(.is-disabled):hover {
+  background-color: $backgroundHoverColor;
+  color: $color;
+}
+
+.el-dropdown-menu__item.is-disabled {
+  color: #141414 !important;
+  font-size: 18px !important;
+  font-weight: bold !important;
+}
+
+.el-loading-spinner .path {
+  stroke: $color
+}
+
+// riverSurvey
+//.el-dialog{
+//  background: transparent;
+//  box-shadow: none;
+//}
+
+.dialog-wrap {
+  .el-dialog{
+    background: white;
+    .el-dialog__header {
+      font-weight: bold;
+      border-bottom: 1px solid rgba(0,0,0,0.09);
+    }
+    .el-dialog__body {
+      padding: 10px 20px;
+    }
+    .el-dialog__footer {
+      border-top: 1px solid rgba(0,0,0,0.09);
+      padding-bottom: 10px;
+    }
+  }
+}
+
+.el-table {
+  th .cell {
+    color: #333;
+    font-weight: bold;
+  }
+  td .cell {
+    color: #666;
+  }
+}
+
+.el-table ::-webkit-scrollbar {
+  height: 8px;
+}
+
+.static-panel-wrap {
+  background:rgba(1,58,140,0.8);
+  box-shadow:0px 2px 8px 0px rgba(0,0,0,0.15);
+  color: white;
+  border: none;
+  margin-left: 20px !important;
+  .iconfont {
+    position: absolute;
+    right: -10px;
+    top: -10px;
+    font-size: 26px;
+    opacity: .7;
+  }
+  .popper__arrow {
+    border-right-color: rgba(1,58,140,0.8);
+    &::after {
+      border-right-color:rgba(1,58,140,8) !important;
+    }
+  }
+}
+.el-loading-mask {
+  background-color: #fff;
+}
+.el-table__fixed-right::before, .el-table__fixed::before {
+  background-color: transparent;
+}
+
+.el-tabs__item {
+  font-size: 16px;
+}
+.el-table__fixed, .el-table__fixed-right{
+  box-shadow: 0 0 10px rgba(0,0,0,.12) !important;
+  height: auto !important;
+  bottom: 10px;
+}

@@ -1,0 +1,39 @@
+.esri-popup__main-container {
+  padding-bottom: 0 !important;
+  background-color: transparent;
+}
+.esri-popup__pointer, .esri-popup__header {
+  display: none;
+}
+.esri-view-width-xlarge .esri-popup__main-container {
+  width: auto;
+}
+.esri-popup__main-container {
+  max-height: 536px;
+}
+.esri-ui-top-left.esri-ui-corner {
+  display: none;
+}
+.esri-component.esri-attribution.esri-widget {
+  display: none;
+}
+.esri-popup__content  {
+  margin: 0;
+}
+.esri-popup__footer {
+  display: none;
+}
+.esri-direct-line-measurement-3d, .esri-area-measurement-3d{
+  margin-top: 110px;
+  box-shadow: 0 3px 14px rgba(0,0,0,0.4) !important;
+}
+// 首页弹窗样式
+.map-container {
+  .esri-popup__main-container {
+    width: 100px;
+    .warning {
+      background: rgba(255, 255, 255, .8);
+      text-align: center;
+    }
+  }
+}

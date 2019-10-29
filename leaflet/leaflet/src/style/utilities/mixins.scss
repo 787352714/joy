@@ -1,0 +1,19 @@
+@mixin text-emphasis-variant($parent, $color) {
+    #{$parent} {
+        color: $color !important;
+    }
+    a#{$parent}:hover,
+    a#{$parent}:focus {
+        color: darken($color, 10%);
+    }
+}
+
+@mixin bg-variant($parent, $color) {
+    #{$parent} {
+      background-color: $color;
+    }
+    a#{$parent}:hover,
+    a#{$parent}:focus {
+      background-color: darken($color, 10%);
+    }
+}

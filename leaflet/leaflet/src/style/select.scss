@@ -1,0 +1,15 @@
+.el-table-filter{
+    position: absolute;
+    top: 335px;
+    left: 305px;
+    max-height: 300px;
+    transform-origin: center top;
+    overflow: auto;
+    z-index: 2005;
+  }
+  .el-table__column-filter-trigger i{
+    font-size: 18px;
+  }
+  .el-table-filter__list-item:nth-child(1){
+    display: none;
+  }
