@@ -4,6 +4,7 @@ import App from './App.vue'
 import ViewUI from 'view-design';
 import 'view-design/dist/styles/iview.css';
 import router from './router'
+import './utils/directive';
 
 Vue.use(ViewUI);
 
