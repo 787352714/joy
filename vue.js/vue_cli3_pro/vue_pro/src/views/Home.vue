@@ -9,6 +9,14 @@
                 </li>
             </template>
         </ListItem>
+        <ListItem>
+            <ListItemMeta avatar="https://dev-file.iviewui.com/userinfoPDvn9gKWYihR24SpgC319vXY8qniCqj4/avatar" title="render函数" description="render函数代码" />
+            <template slot="action">
+                <li>
+                  <router-link tag='a' to='/render'>查看</router-link>
+                </li>
+            </template>
+        </ListItem>
       </List>
     </div>
 </template>
