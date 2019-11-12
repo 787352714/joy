@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>chatJs</title>
+</head>
+<body>
+  <script>
+    // function numGenerator() {
+    //   let num = 1;
+    //   return ()=>{
+    //     console.log('num :', num);
+    //     var y=num
+    //   }
+    // }
+    // var x= numGenerator();
+    // x();
+    // console.log('y :', y);  
+    class Father {
+      constructor(x,y){
+        this.x= x;
+        this.y= y;
+      }
+      sum(){
+        console.log(this.x + this.y)
+      }
+    }
+    class Son extends Father {
+      constructor(x,y,color){
+        super(x,y);
+        this.color= color
+      }
+      toString(){
+        console.log( super.toString());
+      }
+    }
+    
+    let son = new Son(1,2,'red');
+    let father = new Father(1,2);
+    son.sum();
+    son.toString();
+    console.log('son.color :', son.color);
+    console.log(son,father );
+  </script>
+</body>
+</html>
