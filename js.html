@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>123123</title>
+</head>
+<body>
+  <script>
+    // let 就是var
+    // 打印乘法表
+    /*
+    1x1=1 第一行一列，行数乘以列数，最多到1
+    2x1=2 2x2=4 第2行2列，行数乘以列数，最多到2，以此类推
+    3x1=3 3x2=6 3x3=9 
+    4x1=4 4x2=8 4x3=12 4x4=16 
+    5x1=5 5x2=10 5x3=15 5x4=20 5x5=25 
+    6x1=6 6x2=12 6x3=18 6x4=24 6x5=30 6x6=36 
+    7x1=7 7x2=14 7x3=21 7x4=28 7x5=35 7x6=42 7x7=49 
+    8x1=8 8x2=16 8x3=24 8x4=32 8x5=40 8x6=48 8x7=56 8x8=64 
+    9x1=9 9x2=18 9x3=27 9x4=36 9x5=45 9x6=54 9x7=63 9x8=72 9x9=81 */
+    for (var i = 1; i < 10; i++) { //第一次循环，用于乘法表行数，一共9行，所以循环九次；
+      var line='' //每一次循环重新声明一个变量来存循环后当前行的乘法表
+      for (var j = 1; j <= i; j++) { //第二次循环。执行乘法表的列，当前是第几行就要乘几次，所以是循环i次
+        line+=i +'x' +j +'='+i*j+' ' //字符串相加，i表示第几行，第一行就是1，第二行就是2，j表示当前行第几个
+      }
+      console.log(line);
+    }
+    // 函数取最大
+    var numArr= [2,53,64,234,95]; //把数字放到一个数组里
+    var max= function(arr) { //定义函数。给他一个参数叫arr。
+      var numMax=0; //定义一个变量存最大值
+      for (var index = 0; index < arr.length; index++) { //循环数组，arr.length表示传给函数的参数数组的长度（有几个）
+        if(numMax<arr[index]){ //判断，如果numMax存的最大值小于第index个数组里的值（就表示numMax里的不是最大值了）
+          numMax= arr[index]; //把新的最大值，也就是第index个数组里的值给numMax
+        }else{
+          continue; //如果如果numMax存的最大值大于第index个数组里的值就表示numMax里的还是最大值了）
+        };
+      };
+      console.log('最大值 :', numMax);
+    };
+    max(numArr); //函数执行，把定义的数组传进去
+  </script>
+</body>
+</html>
