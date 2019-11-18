@@ -1,14 +1,31 @@
 import React,{Component,Fragment} from 'react';
 import TodoItem from './todoItem';
+import axios from 'axios'
 
 class TodoList extends Component {
   constructor(props){
     super(props);
     this.state={
       inputValue: "123",
-      list: ['1231','hfhkj']
+      list: []
     };
     this.handleDelet=this.handleDelet.bind(this);
+  }
+
+  componentDidMount(){
+    axios.get('http://jsonplaceholder.typicode.com/todos').then(content=>{
+      console.log('content :', content);
+      if(content.status===200){
+        console.log('获取成功');
+        let titleList= [];
+        content.data.forEach(item => {
+          titleList.push(item.title)
+        });
+        this.setState({
+          list: [...this.state.list,...titleList]
+        })
+      }
+    })
   }
 
   render() {
