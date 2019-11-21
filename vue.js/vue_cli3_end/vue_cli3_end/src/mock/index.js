@@ -12,6 +12,10 @@ export default {
         'name': 'pedeg',
         'roles': ['admin']
       }
+    });
+    Mock.mock(BASE_PATH + '/api/user/register', {
+      'code': 1,
+      'message': '注册成功'
     })
   }
 }
