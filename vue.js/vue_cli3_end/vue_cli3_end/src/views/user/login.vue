@@ -9,8 +9,8 @@
         <el-form-item prop="passWord">
           <el-input v-model="ruleForm.passWord" placeholder='密码'></el-input>
         </el-form-item>
-        <el-form-item>
-          <el-button type="primary" @click="onSubmit">登陆</el-button>
+        <el-form-item style="width:100%;text-align: center;">
+          <el-button style="width:70%;" type="primary" @click="onSubmit">登陆</el-button>
         </el-form-item>
       </el-form>
     </div>
@@ -45,13 +45,23 @@
 <style lang="scss" scoped>
   .login{
     height: 100%;
-    width: 100%;
+    display: flex;
+    justify-items: center;
     .form{
-      width: 30%;
-      height: 50%;
       margin: auto;
-      background-color: #eff3f4;
+      width: 25%;
+      height: 70%;
+      background-color: #ffffff;
+      padding: 10px 20px;
       //box-shadow: 
+        .title{
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        margin-bottom: 20px;
+        font-size: 18px;
+        font-weight: bold;
+      }
     }
   }
 </style>
