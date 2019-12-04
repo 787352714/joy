@@ -62,3 +62,6 @@ let myReduceValue = arr.myReduce((a,b)=>{
 },1)
 
 console.log('object :', reduceValue,myReduceValue,arr);
+
+// bind函数实现
+
