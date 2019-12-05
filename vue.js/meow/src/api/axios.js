@@ -128,17 +128,21 @@
 
 import axios from 'axios';
 import router from '../router';
-import { Message } from 'element-ui';
+import ELEMENT from 'element-ui';
+
+export const BASE_URL = process.env.VUE_APP_BASE_URL;
+console.log('object :', BASE_URL);
 
 export const instance = axios.create({
-  baseURL: process.env.BASE_URL,
-  timeout: 2000,
+  baseURL: BASE_URL,
+  timeout: 20000,
   headers: {
     "Content-type": "application/json; charset=UTF-8"
   },
 });
 
 instance.interceptors.request.use(function (config) {
+  console.log('config :', config);
   // 在发送请求之前做些什么
   const token = sessionStorage.getItem('access_token') || null;
     if (token) {
@@ -159,16 +163,16 @@ instance.interceptors.response.use(response=>response, error=>{
         sessionStorage.removeItem('access_token');
         sessionStorage.removeItem('userInfo');
         router.push('/login');
-        Message.warning('身份过期，请重新登录')
+        ELEMENT.message.warning('身份过期，请重新登录')
         break;
         case 404:
-          Message.warning('请求无效');
+          ELEMENT.message.warning('请求无效');
           break;
         case 504:
-          Message.warning('请求超时');
+          ELEMENT.message.warning('请求超时');
           break;
       default:
-        Message.warning('请求失败');
+        ELEMENT.message.warning('请求失败');
         break;
     }
   }

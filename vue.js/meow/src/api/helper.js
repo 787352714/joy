@@ -14,7 +14,7 @@ export function login(url) {
       } else {
         return Promise.reject(res);
       }
-    }).catch(err => Promise.reject(err.response.data));
+    }).catch(err => Promise.reject(err));
   };
 }
 

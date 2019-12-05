@@ -1,7 +1,7 @@
 import Vue from 'vue'
-import { Button, Input } from 'element-ui'
-import { ElMessageBoxComponent } from 'element-ui/types/message-box';
+import { Button, Input, Form, FormItem } from 'element-ui'
 
 Vue.use(Button);
 Vue.use(Input);
-Vue.use(ElMessageBoxComponent)
+Vue.use(Form);
+Vue.use(FormItem)
