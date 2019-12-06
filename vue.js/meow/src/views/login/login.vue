@@ -1,7 +1,7 @@
 <template>
 <div class="login">
   <div class="loginStart">
-    
+    {{userInfo}}
   </div>
   <el-form :model="form" ref="form" label-width="0">
     <el-form-item >
@@ -19,6 +19,8 @@
 
 <script>
 import { userLogin } from "@api/users";
+import Cookie from 'js-cookie';
+import {mapState} from 'vuex';
   export default {
     data() {
       return {
@@ -28,12 +30,29 @@ import { userLogin } from "@api/users";
         }
       }
     },
+    mounted(){
+      console.log('object :', this.userInfo);
+    },
     methods:{
       onSubmit(){
         userLogin(this.form).then(res=>{
-          console.log('res :', res);
+          if(res.status===1){
+            Cookie.set('access_token',res.data.token);
+            let userInfo = {
+              id: res.data.id,
+              name: res.data.name,
+              roles: res.data.roles
+            }
+            Cookie.set('user_info',userInfo);
+            this.$router.push({name:'home'})
+          }
         })
       }
+    },
+    computed:{
+      ...mapState({
+        userInfo: state=> state.user.userInfo
+      })
     }
   }
 </script>

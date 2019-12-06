@@ -12,6 +12,14 @@ module.exports = {
       .set('@components', resolve('src/components')) // 设置路径别名
       .set('@api', resolve('src/api')) // 设置路径别名
   },
+  css: {
+    loaderOptions: {
+      sass: {
+        // 根据自己样式文件的位置调整
+        data: `@import "@/assets/style/common.scss";`
+      }
+    }
+  },
   devServer: {
     proxy: {
       '/url': {

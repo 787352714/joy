@@ -128,10 +128,9 @@
 
 import axios from 'axios';
 import router from '../router';
-import ELEMENT from 'element-ui';
+import Cookie from 'js-cookie';
 
 export const BASE_URL = process.env.VUE_APP_BASE_URL;
-console.log('object :', BASE_URL);
 
 export const instance = axios.create({
   baseURL: BASE_URL,
@@ -144,7 +143,7 @@ export const instance = axios.create({
 instance.interceptors.request.use(function (config) {
   console.log('config :', config);
   // 在发送请求之前做些什么
-  const token = sessionStorage.getItem('access_token') || null;
+  const token = Cookie.get('access_token') || null;
     if (token) {
       config.headers.Authorization = `Bearer ${token}`;
     }
@@ -160,19 +159,19 @@ instance.interceptors.response.use(response=>response, error=>{
   if(error.response) {
     switch (error.response.status) {
       case 401:
-        sessionStorage.removeItem('access_token');
-        sessionStorage.removeItem('userInfo');
+        Cookie.remove('access_token');
+        Cookie.remove('userInfo');
         router.push('/login');
-        ELEMENT.message.warning('身份过期，请重新登录')
+        console.log('身份过期，请重新登录')
         break;
         case 404:
-          ELEMENT.message.warning('请求无效');
+          console.log('请求无效');
           break;
         case 504:
-          ELEMENT.message.warning('请求超时');
+          console.log('请求超时');
           break;
       default:
-        ELEMENT.message.warning('请求失败');
+        console.log('请求失败');
         break;
     }
   }
