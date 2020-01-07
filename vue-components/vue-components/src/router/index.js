@@ -9,6 +9,7 @@ import animotion from '../components/animotion'
 import swiper from '../components/swiper/swiper'
 import Layout from '../components/Layout/Layout.vue'
 import Issues from '../components/issueTest/Issues.vue'
+import VueHoc from '../components/VueHoc/VueHoc.vue'
 
 Vue.use(Router)
 
@@ -53,6 +54,11 @@ export default new Router({
       path: '/Issues',
       name: 'Issues',
       component: Issues
+    },
+    {
+      path: '/VueHoc',
+      name: 'VueHoc',
+      component: VueHoc
     },
   ]
 })

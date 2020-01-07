@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Observe</title>
+</head>
+<body>
+  <input type="text" id="input" onchange="handleChange()">
+  <span id="value"></span>
+  <script>
+    let data = {
+      inputValue: '123123'
+    }
+    let input = document.getElementById('input');
+    let value = document.getElementById('value');
+    input.value = data.inputValue;
+    value.innerText = data.inputValue;
+    function handleChange(){
+      alert(1)
+      Object.defineProperty(data,'inputValue',{
+        get(){
+          return data.inputValue
+        },
+        set(newVal){
+          data.inputValue = newVal
+        }
+      })
+      input.value = data.inputValue;
+      value.innerText = data.inputValue;
+    }
+  </script>
+</body>
+</html>

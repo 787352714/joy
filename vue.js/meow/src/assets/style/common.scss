@@ -1,0 +1,24 @@
+@import "./base.scss";
+html, body {
+  height: 100%;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+@for $i from 0 to 100 {
+  .ml-#{ $i }{
+    margin-left: $i*5px !important;
+  }
+  .mr-#{ $i }{
+    margin-right: $i*5px !important;
+  }
+  .mt-#{ $i }{
+    margin-top: $i*5px !important;
+  }
+  .mb-#{ $i }{
+    margin-bottom: $i*5px !important;
+  }
+}
