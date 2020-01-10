@@ -41,6 +41,10 @@ export default {
         {
           name:"issue自测快速构建",
           address:'/Issues'
+        },
+        {
+          name:"高阶组件",
+          address:'/VueHoc'
         }
       ]
     };
