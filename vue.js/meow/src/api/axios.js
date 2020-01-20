@@ -1,7 +1,7 @@
 /*
 {
   // `url` 是用于请求的服务器 URL
-  url: '/user',
+  url: '/user'
 
   // `method` 是创建请求时使用的方法
   method: 'get', // 默认是 get
