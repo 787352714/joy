@@ -1,0 +1,16 @@
+$per-size: 0.0133333rem;
+
+@for $i from 0 to 100 {
+  .ml-#{ $i }{
+    margin-left: $i*5px !important;
+  }
+  .mr-#{ $i }{
+    margin-right: $i*5px !important;
+  }
+  .mt-#{ $i }{
+    margin-top: $i*5px !important;
+  }
+  .mb-#{ $i }{
+    margin-bottom: $i*5px !important;
+  }
+}
