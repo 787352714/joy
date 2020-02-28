@@ -9,6 +9,6 @@ const store = new Vuex.Store(
         todos
     }
    }
-)
+)//
 
 export default store;
