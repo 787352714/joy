@@ -1,0 +1,64 @@
+.preview-image-wrap {
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.4);
+  animation: fade-in .3s;
+  #preview-image {
+    position: relative;
+    width: 60%;
+    height: 500px;
+    margin: 12vh auto 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    border-radius: 4px;
+    .load-fail {
+      position: absolute;
+      left: 0;
+      right: 0;
+      top: 0;
+      bottom: 0;
+      color: #fff;
+      opacity: 0.4;
+      font-size: 20px;
+      text-align: center;
+      line-height: 500px;
+    }
+    .preview-toolbar {
+      position: absolute;
+      left: 50%;
+      bottom: 0;
+      padding: 0 20px;
+      height: 45px;
+      white-space: nowrap;
+      background-color: rgba(0,0,0,.8);
+      border-radius: 4px 4px 0 0;
+      transform: translateX(-50%);
+      z-index: 2020;
+      cursor: pointer;
+      .bar-icon {
+        display: inline-block;
+        width: 45px;
+        height: 45px;
+        text-align: center;
+        line-height: 45px;
+        font-size: 25px;
+        color: #fff;
+        &.disabled{
+          opacity: 0.4;
+        }
+      }
+    }
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

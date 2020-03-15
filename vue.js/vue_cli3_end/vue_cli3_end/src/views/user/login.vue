@@ -13,10 +13,13 @@
           <el-button style="width:70%;" type="primary" @click="onSubmit">登陆</el-button>
         </el-form-item>
       </el-form>
+      <upload :on-change="handleChange" >
+      </upload>
     </div>
   </div>
 </template>
 <script>
+import upload from "@components/upload/upload.vue";
   export default {
     data(){
       return {
@@ -36,9 +39,16 @@
     },
     methods: {
       onSubmit(){
+        this.$previewImage('https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1584015088583&di=2a998f83f5039c10f258b640d6ed9dcf&imgtype=0&src=http%3A%2F%2Fa3.att.hudong.com%2F68%2F61%2F300000839764127060614318218_950.jpg')
         this.$message.success('123123')
+      },
+      handleChange(file, fileList) {
+        console.log('fileList :', fileList);
       }
     },
+    components:{
+      upload:upload
+    }
   }
 </script>
 
