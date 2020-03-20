@@ -30,6 +30,7 @@
     name:"upload",
     functional:true,
     render(h,context) {
+      console.log('context :', context);
       return (
         <div>
           <el-upload  action="" auto-upload={false} {...context.data}>

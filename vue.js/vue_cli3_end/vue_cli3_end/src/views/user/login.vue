@@ -13,7 +13,8 @@
           <el-button style="width:70%;" type="primary" @click="onSubmit">登陆</el-button>
         </el-form-item>
       </el-form>
-      <upload :on-change="handleChange" >
+      <upload :on-change="handleChange" list-type="picture-card">
+        
       </upload>
     </div>
   </div>

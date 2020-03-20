@@ -21,7 +21,7 @@ numberOrString = "1111"
 let tribleType: number | boolean | string = 1;
 tribleType = "2222";
 tribleType = true;
-tribleType = [];
+//tribleType = [];
 
 //数组和元组
 
@@ -44,3 +44,129 @@ let user1: Person ={
   id:1,
   name:"张三",
 } 
+
+
+//函数声明
+
+function add(x: number,y:number,z:number=1):number{
+  return x+y+z
+}
+
+const add2:(x:number,y:number,z?:number)=>number = add;
+
+//类
+
+class Animal {
+  name:string;
+  constructor(name){
+    this.name=name
+  }
+  run(){
+    return `${this.name} is runing`
+  }
+}
+
+const snake = new Animal('lily');
+
+console.log('snake.run() :', snake.run());
+
+class Pet extends Animal {
+  eat(){
+    return `${this.name} is eating`
+  }
+}
+
+const cat = new Pet('hanhan');
+console.log('cat.run :', cat.run());
+console.log('cat.eat :', cat.eat());
+
+class Dog extends Animal {
+  constructor(name){
+    super(name);
+    console.log('name :', name);
+  }
+  run(){
+    return `hhhhh,${super.run()}`
+  }
+}
+
+const dog = new Dog('小黑');
+console.log('dog.run() :', dog.run());
+
+
+//类的interface约束
+
+interface Radio {
+  switchRadio():void;
+}
+
+//interface的继承
+interface carButton extends Radio {
+  openDoor():boolean;
+}
+
+//类的约束依赖关键词implements
+class Car implements carButton {
+  openDoor(){
+    return false
+  };
+  switchRadio(){
+
+  }
+}
+
+//枚举
+
+enum direction1 {
+  up="up",
+  down="down",
+  left="left",
+  right="right",
+}
+
+// 常量枚举，可以在使用过程中直接引用
+const enum direction2 {
+  up="up",
+  down="down",
+  left="left",
+  right="right",
+}
+
+
+//泛型
+
+function swap<t,d>(tuple:[t,d]):[d,t]{
+  return [tuple[1],tuple[0]]
+}
+
+const result = swap([1,22]);
+console.log('result :', result);
+
+// 泛型限制 可以使泛型利用extends
+
+interface ItWidthLength {
+  length:number
+}
+
+function echoWithLength <T extends ItWidthLength> (args:T) :T{
+  console.log('args.length :', args.length);
+  return args
+}
+
+//泛型用于类
+
+class GenericNumber<T> {
+  innerValue:T;
+  add:(arg1:T,arg2:T)=>T
+}
+
+const generic = new GenericNumber<number>();
+generic.innerValue=111
+
+//泛型用于interface
+
+interface GenericInterface<T> {
+  leng:T;
+}
+
+const inter:GenericInterface<number> = { leng:1 }
