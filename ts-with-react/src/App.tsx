@@ -4,18 +4,26 @@ import './App.css';
 import Hello from "./components/Hello";
 import LikeButton from "./components/likeButton";
 import MouseEvent from "./components/mouseEvent";
+import useMouseMove from "./hooks/useMouseMove"
+import useLoder from "./hooks/useLoder"
+
+interface IshowResult {
+  message:string,
+  status:string
+}
 
 function App() {
+  const position = useMouseMove();
+  const [result,loading] = useLoder('https://dog.ceo/api/breeds/image/random');
+  const resultMassage = result as IshowResult;
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
         <Hello message="hhhhhhhh" />
+        <p>X:{position.x},Y:{position.y}</p>
         <LikeButton/>
-        <MouseEvent/>
+        <MouseEvent/>a
+        {loading?<p>🐶 loading中</p>:<img src={resultMassage&&resultMassage.message} />}
         <a
           className="App-link"
           href="https://reactjs.org"
