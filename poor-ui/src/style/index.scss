@@ -1,0 +1,10 @@
+// scss 中加了下划线的文件，只作为模块化的导入使用，不能直接编译为css
+
+@import "variables";
+@import "reboot";
+@import "mixins";
+
+//按钮样式 button style
+
+@import "../components/Button/button.scss";
+@import "../components/Alert/alert.scss";

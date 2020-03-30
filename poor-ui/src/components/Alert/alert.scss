@@ -1,0 +1,41 @@
+.alert{
+  position: relative;
+  min-width: 10rem;
+  color: $white;
+  text-align: left;
+  vertical-align: middle;
+  margin-bottom: 1rem;
+  background-color: $alert-bgColor;
+  padding: $alert-padding-y $alert-padding-x;
+  border-radius: $border-radius;
+  border:$btn-border-width solid transparent;
+  font-family: $btn-font-family;
+  font-size: $btn-font-size;
+  line-height: $btn-line-height;
+}
+.bold-title{
+  font-size: $font-size-lg;
+  font-weight:$font-weight-bold;
+}
+.alert-close{
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: $alert-padding-y $alert-padding-x;
+  color: inherit;
+  cursor: pointer;
+}
+.alert-description{
+  font-size: $font-size-sm;
+  margin: 0.3rem 0 0;
+}
+.alert-primary {
+  @include alert-bgColor($alert-primary-bgColor)
+}
+.alert-danger {
+  @include alert-bgColor($alert-danger-bgColor)
+}
+.alert-warning {
+  @include alert-bgColor($alert-warning-bgColor)
+}
+ 
