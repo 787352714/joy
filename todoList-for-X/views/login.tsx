@@ -1,12 +1,12 @@
 import React,{ useState } from 'react';
-import { StyleSheet, Button, TextInput, Text, View } from 'react-native';
+import { StyleSheet, TextInput, Text, View } from 'react-native';
 
 interface LoginInfo {
   userName:string;
   passWord:string;
 }
 
-const Login:React.FC = ()=>{
+const Login:React.FC = ({ navigation })=>{
   const [userName,setUserName] = useState("");
   const [passWord,setpassWord] = useState("");
   const login = ()=>{
@@ -14,22 +14,23 @@ const Login:React.FC = ()=>{
       userName:userName,
       passWord:passWord
     }
-    console.log('LoginInfo :', LoginInfo);
+    navigation.navigate('Home')
   };
   
   return (
-    <View >
+    <View style={loginStyle.loginContainer}>
       <Text style={loginStyle.loginTitle}>All For You</Text>
       <TextInput style={loginStyle.loginInput} placeholder="请输入用户名" clearButtonMode= 'while-editing' onChangeText={text => setUserName(text)} placeholderTextColor="rgba(27, 31, 35, 0.05);"></TextInput>
       <TextInput style={loginStyle.loginInput} placeholder="请输入密码" clearButtonMode= 'while-editing' onChangeText={text => setpassWord(text)} placeholderTextColor="rgba(27, 31, 35, 0.05);"></TextInput>
       <Text style={loginStyle.loginButton} onPress={()=>{login()}}>登 陆</Text>
     </View>
-  )
+  ) 
 }
 
 const loginStyle = StyleSheet.create({
   loginContainer:{
     flex: 1,
+    backgroundColor: '#fff',
     alignItems: 'center',
     justifyContent: 'center',
   },
