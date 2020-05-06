@@ -1,0 +1,41 @@
+
+
+#app{
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  justify-content: center;
+  justify-items: center;
+  align-items: center;
+  margin: 0 auto;
+}
+#app>div {
+  width: 4.45rem;
+}
+.img{
+  width: 4.45rem;
+  height: 4.45rem;
+}
+.title{
+  font-size: 18px;
+  font-weight: bold;
+  margin: 5px 0;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+}
+.count{
+  font-size: 16px;
+  color: #666666;
+  float: left;
+  display: block;
+  width: 2.45rem;
+  overflow:hidden; 
+  text-overflow:ellipsis; 
+  white-space:nowrap; 
+}
+.price{
+  font-size: 18px;
+  font-weight: bold;
+  color: red;
+  float: right;
+}
