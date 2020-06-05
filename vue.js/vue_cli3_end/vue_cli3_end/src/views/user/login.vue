@@ -14,13 +14,17 @@
         </el-form-item>
       </el-form>
       <upload :on-change="handleChange" list-type="picture-card">
-        
       </upload>
+      <father>
+        <son :user="user"></son>
+      </father>
     </div>
   </div>
 </template>
 <script>
 import upload from "@components/upload/upload.vue";
+import son from '@components/upload/son.vue';
+import father from '@components/upload/father.vue';
   export default {
     data(){
       return {
@@ -28,6 +32,7 @@ import upload from "@components/upload/upload.vue";
           userCount: 'admin',
           passWord: '123456'
         },
+        user:'123',
         rules: {
           userCount: [
             { required: true, message: '请输入账号', trigger: 'blur' }
@@ -48,7 +53,9 @@ import upload from "@components/upload/upload.vue";
       }
     },
     components:{
-      upload:upload
+      upload:upload,
+      father:father,
+      son:son,
     }
   }
 </script>
