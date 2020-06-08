@@ -9,5 +9,5 @@ function component() {
   element.appendChild(btn);
   return element;
 }
-
+console.log('process.env.NODE_ENV :>> ', process.env.NODE_ENV);
 document.body.appendChild(component());
