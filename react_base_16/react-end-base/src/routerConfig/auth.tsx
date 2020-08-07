@@ -7,11 +7,6 @@ interface routerAuthConfigModel {
 interface testAuthListModel {
 
 }
-// 虚拟权限表
-const testAuthList = {
-  'home':true,
-  'table':true
-}
 //导出routerAuthConfig，用于路由鉴权
 export const routerAuthConfig:routerAuthConfigModel[] = [
   {
@@ -20,14 +15,17 @@ export const routerAuthConfig:routerAuthConfigModel[] = [
   },
   {
     path: '/login',
-    auth:true
+    authName:'login',
+    auth:false
   },
   {
     path:'/home',
-    auth:testAuthList['home']
+    authName:'home',
+    auth:true
   },
   {
     path:'/table',
-    auth:testAuthList['table']
+    authName:'table',
+    auth:true
   }
 ]

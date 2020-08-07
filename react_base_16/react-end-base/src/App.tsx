@@ -1,11 +1,15 @@
 import React, { FC } from 'react';
-import { Button } from 'antd';
+import { HashRouter,Switch } from 'react-router-dom';
+import { routerAuthConfig } from './routerConfig/auth';
+import { FrontendAuth } from './router/frontend-auth'
 import './App.css';
 
 const App: FC = () => (
-  <div className="App">
-    <Button type="primary">Button</Button>
-  </div>
+  <HashRouter>
+    <Switch>
+      <FrontendAuth config={routerAuthConfig} />
+    </Switch>
+  </HashRouter>
 );
 
 export default App;
