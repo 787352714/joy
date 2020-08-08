@@ -6,6 +6,7 @@ interface propsModel {
 }
 export class FrontendAuth extends React.Component<any&propsModel>{
   render(){
+    console.log('object :>> ', this.props);
     const { location,config } = this.props;
     const { pathname } = location;
     const isLogin = !!sessionStorage.getItem('userInfo');
@@ -16,7 +17,6 @@ export class FrontendAuth extends React.Component<any&propsModel>{
       return <Route exact={true} path={pathname} component={authName} />
     //登录状态
     }
-    console.log('object :>> ', config,this.props);
     if(isLogin){
       if(pathname==='/login'){
         return <Redirect to='/' />
@@ -33,9 +33,8 @@ export class FrontendAuth extends React.Component<any&propsModel>{
       if(targetPath && targetPath.auth){
         return <Redirect to='/login' />
       }else{
-
-          // 非登陆状态下，路由不合法时，重定向至 404
-          return <Redirect to='/404' />
+        // 非登陆状态下，路由不合法时，重定向至 404
+        return <Redirect to='/404' />
       }
     }
   }

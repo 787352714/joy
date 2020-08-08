@@ -1,6 +1,10 @@
+import Login from '../views/Login/index';
+import NoMatch from '../views/noMatch/noMatch';
+
+
 interface routerAuthConfigModel {
   path:string,
-  authName?:string,
+  authName?:any,
   auth:boolean
 }
 
@@ -15,17 +19,22 @@ export const routerAuthConfig:routerAuthConfigModel[] = [
   },
   {
     path: '/login',
-    authName:'login',
+    authName:Login,
+    auth:false
+  },
+  {
+    path: '/404',
+    authName:NoMatch,
     auth:false
   },
   {
     path:'/home',
-    authName:'home',
+    authName:'Home',
     auth:true
   },
   {
     path:'/table',
-    authName:'table',
+    authName:'Table',
     auth:true
   }
 ]
