@@ -1,15 +1,15 @@
 import React, { FC } from 'react';
-import { HashRouter,Switch } from 'react-router-dom';
+import { BrowserRouter as Router,Switch } from 'react-router-dom';
 import { routerAuthConfig } from './routerConfig/auth';
 import { FrontendAuth } from './router/frontend-auth'
-import './App.css';
+import './App.scss';
 
 const App: FC = () => (
-  <HashRouter>
+  <Router>
     <Switch>
       <FrontendAuth config={routerAuthConfig} />
     </Switch>
-  </HashRouter>
+  </Router>
 );
 
 export default App;

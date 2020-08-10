@@ -1,5 +1,7 @@
 import Login from '../views/Login/index';
 import NoMatch from '../views/noMatch/noMatch';
+import Home from '../views/home/index';
+
 
 
 interface routerAuthConfigModel {
@@ -29,7 +31,7 @@ export const routerAuthConfig:routerAuthConfigModel[] = [
   },
   {
     path:'/home',
-    authName:'Home',
+    authName:Home,
     auth:true
   },
   {
