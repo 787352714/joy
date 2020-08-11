@@ -7,7 +7,8 @@ import Home from '../views/home/index';
 interface routerAuthConfigModel {
   path:string,
   authName?:any,
-  auth:boolean
+  auth:boolean,
+  layout:boolean
 }
 
 interface testAuthListModel {
@@ -17,26 +18,32 @@ interface testAuthListModel {
 export const routerAuthConfig:routerAuthConfigModel[] = [
   {
     path: '/',
-    auth:true
+    authName:Home,
+    auth:true,
+    layout:true
   },
   {
     path: '/login',
     authName:Login,
-    auth:false
+    auth:false,
+    layout:false
   },
   {
     path: '/404',
     authName:NoMatch,
-    auth:false
+    auth:false,
+    layout:false
   },
   {
     path:'/home',
     authName:Home,
-    auth:true
+    auth:true,
+    layout:true
   },
   {
     path:'/table',
     authName:'Table',
-    auth:true
+    auth:true,
+    layout:true
   }
 ]

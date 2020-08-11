@@ -1,9 +1,11 @@
 import React from 'react';
 import { Route,Redirect } from 'react-router-dom';
+import LayoutPage from '../components/layout/index';
 
 interface propsModel {
   config:any[],
 }
+// todo:添加router
 export class FrontendAuth extends React.Component<any&propsModel>{
   render(){
     console.log('object :>> ', this.props);
@@ -13,8 +15,8 @@ export class FrontendAuth extends React.Component<any&propsModel>{
     const targetPath = config.find((item:any)=>item.path===pathname);
     //路径合理且不需要鉴权
     if(targetPath&&!targetPath.auth){
-      const { authName } = targetPath;
-      return <Route exact={true} path={pathname} component={authName} />
+      const { authName,layout } = targetPath;
+      return <Route exact={true} path={pathname} component={layout?()=>LayoutPage(authName):authName} />
     //登录状态
     }
     if(isLogin){
@@ -22,8 +24,8 @@ export class FrontendAuth extends React.Component<any&propsModel>{
         return <Redirect to='/' />
       }else{
         if(targetPath){
-          const { authName } = targetPath;
-          return <Route exact path={pathname} component={authName} />
+          const { authName,layout } = targetPath;
+          return <Route exact path={pathname} component={layout?()=>LayoutPage(authName):authName} />
         }else{
           return <Redirect to='/404' />
         }

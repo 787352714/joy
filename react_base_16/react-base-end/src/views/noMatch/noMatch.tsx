@@ -2,7 +2,7 @@ import React, { FC } from 'react';
 
 const NoMatch:FC = ()=>{
   return (
-    <div>23123</div>
+    <div>没有匹配到对应页面</div>
   )
 }
 
