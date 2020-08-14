@@ -5,7 +5,7 @@ interface routerAuthConfigModel {
   auth:boolean,
   layout:boolean,
   name?:string,
-  children?:[]
+  children?:any[]
 }
 //导出routerAuthConfig，用于路由鉴权
 export const routerAuthConfig:routerAuthConfigModel[] = [
@@ -41,6 +41,21 @@ export const routerAuthConfig:routerAuthConfigModel[] = [
     name:'表格',
     auth:true,
     layout:true,
-    children:[]
+    children:[{
+      path:'/table/tableNormal',
+      authName:'TableNormal',
+      name:'表格1',
+      auth:true,
+      layout:true,
+      children:[
+        {
+          path:'/table/tableNormal',
+          authName:'TableNormal',
+          name:'表格12',
+          auth:true,
+          layout:true,
+        }
+      ]
+    }]
   }
 ]

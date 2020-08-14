@@ -1,6 +1,7 @@
 import React from "react";
 import { Layout, Menu, Badge,Avatar } from 'antd';
-import { UserOutlined, LaptopOutlined, NotificationOutlined,BulbOutlined,SearchOutlined,QuestionCircleOutlined } from '@ant-design/icons';
+// LaptopOutlined, NotificationOutlined,
+import { UserOutlined,BulbOutlined,SearchOutlined,QuestionCircleOutlined } from '@ant-design/icons';
 import { routerAuthConfig } from "../../routerConfig/auth";
 
 
@@ -9,12 +10,38 @@ const { Header, Content, Sider, Footer } = Layout;
 const userName = 'pedeg'
 const routerFilterList = routerAuthConfig.filter(item=>item.name);
 let selectString:any = '/home';
+let subSelectString:any = '/home';
 // 处理侧边栏
-const setSider = function(obj){
-  if(!obj.children){
+const setSider = function(obj,hooks){
+  if(!obj.children||!obj.children.length){
     return (<></>)
   }else{
-    
+    return (
+      <Sider width={200} className="site-layout-background">
+        <Menu
+          mode="inline"
+          defaultSelectedKeys={[subSelectString]}
+          defaultOpenKeys={[obj.children[0].path]}
+          style={{ height: '100%', borderRight: 0 }}
+          onClick={
+            ({key})=>{
+              hooks.push(key)
+              subSelectString = key
+            }
+          }
+        >
+          {obj.children.map(item=>{
+            return (<SubMenu key={item.path} icon={<UserOutlined />} title={item.name}>
+              {item.children.map(child=>{
+                return (
+                  <Menu.Item key={child.path}>{child.name}</Menu.Item>
+                )
+              })}
+            </SubMenu>)
+          })}
+        </Menu>
+      </Sider>
+    )
   }
 }
 const LayoutPage = (ContentPage: typeof React.Component|any,hooks)=>(
@@ -42,7 +69,7 @@ const LayoutPage = (ContentPage: typeof React.Component|any,hooks)=>(
       </Menu>
     </Header>
     <Layout>
-      <Sider width={200} className="site-layout-background">
+      {/* <Sider width={200} className="site-layout-background">
         <Menu
           mode="inline"
           defaultSelectedKeys={['1']}
@@ -68,7 +95,8 @@ const LayoutPage = (ContentPage: typeof React.Component|any,hooks)=>(
             <Menu.Item key="12">option12</Menu.Item>
           </SubMenu>
         </Menu>
-      </Sider>
+      </Sider> */}
+      {setSider(routerAuthConfig.find(item=>item.path===selectString),hooks)}
       <Layout style={{ padding: '0 24px 24px' }}>
         <Content
           className="site-layout-background"

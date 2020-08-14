@@ -4,4 +4,5 @@ export const routerList = {
   NoMatch:()=>import(/* webpackChunkName: "NoMatch" */ '../views/noMatch/noMatch'),
   Home:()=>import(/* webpackChunkName: "Home" */ '../views/home/index'),
   Table:()=>import(/* webpackChunkName: "Table" */ '../views/table/index'),
+  TableNormal:()=>import(/* webpackChunkName: "Table" */ '../views/table/tableNormal/index'),
 }

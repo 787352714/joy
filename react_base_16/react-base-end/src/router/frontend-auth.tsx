@@ -12,7 +12,9 @@ export class FrontendAuth extends React.Component<any&propsModel>{
     const { location,config } = this.props;
     const { pathname } = location;
     const isLogin = !!sessionStorage.getItem('userInfo');
-    const targetPath = config.find((item:any)=>item.path===pathname);
+    
+    const targetPath = config.flat(Infinity).find((item:any)=>item.path===pathname);
+    console.log('targetPath :>> ', config.flat(Infinity));
     //路径合理且不需要鉴权
     if(targetPath&&!targetPath.auth){
       const { authName,layout } = targetPath;
