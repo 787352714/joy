@@ -1,3 +1,7 @@
 //通用
-export const Login = ()=>import(/* webpackChunkName: "login" */ '../views/Login/index');
-export const NoMatch = ()=>import(/* webpackChunkName: "login" */ '../views/noMatch/noMatch') 
+export const routerList = {
+  Login:()=>import(/* webpackChunkName: "login" */ '../views/Login/index'),
+  NoMatch:()=>import(/* webpackChunkName: "NoMatch" */ '../views/noMatch/noMatch'),
+  Home:()=>import(/* webpackChunkName: "Home" */ '../views/home/index'),
+  Table:()=>import(/* webpackChunkName: "Table" */ '../views/table/index'),
+}

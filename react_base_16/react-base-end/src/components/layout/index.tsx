@@ -1,17 +1,27 @@
 import React from "react";
 import { Layout, Menu, Badge,Avatar } from 'antd';
 import { UserOutlined, LaptopOutlined, NotificationOutlined,BulbOutlined,SearchOutlined,QuestionCircleOutlined } from '@ant-design/icons';
+import { routerAuthConfig } from "../../routerConfig/auth";
 
 
 const { SubMenu } = Menu;
 const { Header, Content, Sider, Footer } = Layout;
 const userName = 'pedeg'
-
-const LayoutPage = (ContentPage: typeof React.Component)=>(
+const routerFilterList = routerAuthConfig.filter(item=>item.name);
+let selectString:any = '/home';
+// 处理侧边栏
+const setSider = function(obj){
+  if(!obj.children){
+    return (<></>)
+  }else{
+    
+  }
+}
+const LayoutPage = (ContentPage: typeof React.Component|any,hooks)=>(
   <Layout style={layoutStyle.viewPort}>
     <Header className="header">
       <div className="logo" />
-      <div className="personalCenter" style={{width:'100px'}}>
+      <div className="personalCenter" style={{float:"right",color:'#ffffff'}}>
         <SearchOutlined />
         <QuestionCircleOutlined />
         <Badge count={5}>
@@ -20,12 +30,16 @@ const LayoutPage = (ContentPage: typeof React.Component)=>(
         <Avatar src="https://zos.alipayobjects.com/rmsportal/ODTLcjxAfvqbxHnVXCYX.png" />
         <div>{userName}</div>
       </div>
-      <Menu theme="dark" mode="horizontal" defaultSelectedKeys={['2']}>
-        <Menu.Item key="1">nav 1</Menu.Item>
-        <Menu.Item key="2">nav 2</Menu.Item>
-        <Menu.Item key="3">nav 3</Menu.Item>
+      <Menu theme="dark" mode="horizontal" onClick={
+        ({key})=>{
+          hooks.push(key)
+          selectString = key
+        }
+      } defaultSelectedKeys={[selectString]}>
+        {routerFilterList.map(item=>{
+          return (<Menu.Item key={item.path}>{item.name}</Menu.Item>)
+        })}
       </Menu>
-      
     </Header>
     <Layout>
       <Sider width={200} className="site-layout-background">

@@ -1,11 +1,11 @@
 import React from 'react';
-import { Route,Redirect } from 'react-router-dom';
+import { Route,Redirect,useHistory } from 'react-router-dom';
 import LayoutPage from '../components/layout/index';
-
+import { routerList } from '../router/rouetList';
+import lazyLoad from '../router/lazyLoad'
 interface propsModel {
   config:any[],
 }
-// todo:添加router
 export class FrontendAuth extends React.Component<any&propsModel>{
   render(){
     console.log('object :>> ', this.props);
@@ -16,7 +16,10 @@ export class FrontendAuth extends React.Component<any&propsModel>{
     //路径合理且不需要鉴权
     if(targetPath&&!targetPath.auth){
       const { authName,layout } = targetPath;
-      return <Route exact={true} path={pathname} component={layout?()=>LayoutPage(authName):authName} />
+      return <Route exact={true} path={pathname} component={layout?()=>{
+        const history = useHistory()
+        return LayoutPage(lazyLoad(routerList[authName]),history)
+      }:lazyLoad(routerList[authName])} />
     //登录状态
     }
     if(isLogin){
@@ -25,7 +28,10 @@ export class FrontendAuth extends React.Component<any&propsModel>{
       }else{
         if(targetPath){
           const { authName,layout } = targetPath;
-          return <Route exact path={pathname} component={layout?()=>LayoutPage(authName):authName} />
+          return <Route exact path={pathname} component={layout?()=>
+            {const history = useHistory()
+            return LayoutPage(lazyLoad(routerList[authName]),history)}
+            :lazyLoad(routerList[authName])} />
         }else{
           return <Redirect to='/404' />
         }

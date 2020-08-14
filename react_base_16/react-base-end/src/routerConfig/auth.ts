@@ -1,49 +1,46 @@
-import Login from '../views/Login/index';
-import NoMatch from '../views/noMatch/noMatch';
-import Home from '../views/home/index';
-
-
-
+//这一部分可以交给后端处理
 interface routerAuthConfigModel {
   path:string,
   authName?:any,
   auth:boolean,
-  layout:boolean
-}
-
-interface testAuthListModel {
-
+  layout:boolean,
+  name?:string,
+  children?:[]
 }
 //导出routerAuthConfig，用于路由鉴权
 export const routerAuthConfig:routerAuthConfigModel[] = [
   {
     path: '/',
-    authName:Home,
+    authName:'Home',
     auth:true,
-    layout:true
+    layout:true,
   },
   {
     path: '/login',
-    authName:Login,
+    authName:'Login',
     auth:false,
-    layout:false
+    layout:false,
   },
   {
     path: '/404',
-    authName:NoMatch,
+    authName:'NoMatch',
     auth:false,
-    layout:false
+    layout:false,
   },
   {
     path:'/home',
-    authName:Home,
+    authName:'Home',
+    name:'首页',
     auth:true,
-    layout:true
+    layout:true,
+    children:[]
   },
   {
     path:'/table',
     authName:'Table',
+    name:'表格',
     auth:true,
-    layout:true
+    layout:true,
+    children:[]
   }
 ]
