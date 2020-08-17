@@ -2,19 +2,17 @@ import React from 'react';
 import { Route,Redirect,useHistory } from 'react-router-dom';
 import LayoutPage from '../components/layout/index';
 import { routerList } from '../router/rouetList';
-import lazyLoad from '../router/lazyLoad'
+import lazyLoad from '../router/lazyLoad';
+import { deepthArr } from '../utils/index'
 interface propsModel {
   config:any[],
 }
 export class FrontendAuth extends React.Component<any&propsModel>{
   render(){
-    console.log('object :>> ', this.props);
     const { location,config } = this.props;
     const { pathname } = location;
     const isLogin = !!sessionStorage.getItem('userInfo');
-    
-    const targetPath = config.flat(Infinity).find((item:any)=>item.path===pathname);
-    console.log('targetPath :>> ', config.flat(Infinity));
+    const targetPath = deepthArr(config,'children').find((item:any)=>item.path===pathname);
     //路径合理且不需要鉴权
     if(targetPath&&!targetPath.auth){
       const { authName,layout } = targetPath;
