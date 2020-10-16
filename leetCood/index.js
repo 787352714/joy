@@ -170,3 +170,80 @@ var searchInsert = function(nums, target) {
   for(var q = 0;target > nums[q];q++){}
   return q
 };
+
+//给定一个仅包含大小写字母和空格 ' ' 的字符串 s，返回其最后一个单词的长度。如果字符串从左向右滚动显示，那么最后一个单词就是最后出现的单词。
+/**
+ * @param {string} s
+ * @return {number}
+ */
+var lengthOfLastWord = function(s) {
+ let array = s.split(' ');
+ let result = 0
+  for (const key in array) {
+    if (object.hasOwnProperty(key)) {
+      const element = array[key];
+      if(element.length>0){
+      result = element.length
+      }
+    }
+  }
+};
+// mark
+var plusOne = function(digits) {
+  let popNum = digits.pop();
+  console.log('popNum :>> ', popNum);
+  return digits.push(popNum+1)
+};
+//67. 二进制求和
+/**
+ * @param {string} a
+ * @param {string} b
+ * @return {string}
+ */
+var addBinary = function(a, b) {
+  let target = a.length>b.length?a:b;
+  
+};
+//计算并返回 x 的平方根，其中 x 是非负整数。
+
+/**
+ * @param {number} x
+ * @return {number}
+ */
+var mySqrt = function(x) {
+  if(x===0){
+    return 0; 
+  };
+  let index = 1;
+  let result =0
+  while(index<=x/2){
+    if(index*index>x){
+      result = index-1;
+      break;
+    }else if(index*index===x){
+      result = index
+      break;
+    }else{
+      index++
+    }
+  }
+  return result;
+};
+
+//每次你可以爬 1 或 2 个台阶。你有多少种不同的方法可以爬到楼顶呢？
+/**
+ * @param {number} n
+ * @return {number}
+ */
+var climbStairs = function(n) {
+  // n<3
+  let result = 0 
+  while (--n) {
+    result = result+n-1
+  }
+  if(n%2===0){
+    return result-1
+  }else{
+    return result
+  }
+};
