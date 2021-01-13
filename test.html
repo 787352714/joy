@@ -1,27 +1,57 @@
 
-
 <script>
-  console.log(person)
-
-  console.log(fun)
-
-  var person = "Eric";
-
-  console.log(person)
-
-  function fun() {
-      console.log(person)
-      var person = "Tom";
-      console.log(person)
+const PENDING = "PENDING"
+const FULLFILED = "FULLFILED"
+const REJECTED = "REJECTED"
+class MyPromise {
+  constructor(cb){
+    this.status = PENDING;
+    this.value = undefined;
+    this.reason = undefined;
+    this.onfulfilledStack = [];
+    this.onRejectedStack = [];
+    const resolve= value =>{
+      if(this.status === PENDING){
+        this.value = value;
+        this.status = FULLFILED;
+        this.onfulfilledStack.forEach(fn=>{fn(value)})
+      }
+    };
+    const reject= reason =>{
+      if(status === PENDING){
+        this.reason = reason;
+        this.status = REJECTED;
+        this.onRejectedStack.forEach(fn=>{fn(reason)})
+      }
+    }
+    try { 
+      cb(resolve,reject)
+    } catch (error) {
+      reject(error)
+    }
   }
-
-  fun()
-
-  console.log(person)
-</script>
-<script>
-  //console.log(fun)
-
-  console.log(person)
-  var person = 1;
+  then(onFulfilled,onRejected){
+    setTimeout(()=>{
+      console.log('object :>> ', this.status);
+      if(this.status===PENDING){
+        this.onfulfilledStack.push(onFulfilled);
+        this.onRejectedStack.push(onRejected);
+      }else if(this.status===FULLFILED){
+        onFulfilled(this.value);
+      }else{
+        onRejected(this.reason);
+      }
+    },0)
+  };
+  catch(){};
+  static resolve(){};
+  static reject(){};
+  static all(){};
+  static rece(){};
+}
+const promise = new MyPromise((resolve, reject) => {
+  setTimeout(() => {console.log(2);resolve(1)}, 1000);
+}).then(
+  res => console.log(res)
+)
 </script>
